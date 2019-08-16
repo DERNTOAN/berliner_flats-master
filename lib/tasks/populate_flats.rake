@@ -2,10 +2,10 @@
 
 desc 'Populate flats table with data'
 task populate_flats: :environment do
-  log = ActiveSupport::Logger.new('log/populate_flats.log')
+  # log = ActiveSupport::Logger.new('log/populate_flats.log')
   start_time = Time.now
 
-  log.info "Task started at #{start_time}"
+  # log.info "Task started at #{start_time}"
   doc = Nokogiri::HTML(open('https://www.immobilienscout24.de/Suche/S-2/Wohnung-Miete/Berlin/Berlin/Charlottenburg-Charlottenburg/3,00-/-/EURO--1500,00?enteredFrom=HNC_LAST_SEARCH'))
   last_page = doc.xpath("//select[contains(@aria-label, 'Seitenauswahl')]")
                  .children.last&.text
@@ -19,6 +19,6 @@ task populate_flats: :environment do
 
   end_time = Time.now
   duration = (end_time - start_time)
-  log.info "Task finished at #{end_time} and last #{duration} seconds."
-  log.close
+  # log.info "Task finished at #{end_time} and last #{duration} seconds."
+  # log.close
 end
