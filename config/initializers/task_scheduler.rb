@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require 'rufus/scheduler'
-​
+
 scheduler = Rufus::Scheduler.new
-​
+
 scheduler.every '2m' do
   require 'nokogiri'
   require 'open-uri'
@@ -16,7 +16,7 @@ scheduler.every '2m' do
   doc.xpath("//ul[@id='resultListItems']//li[contains(@class, 'result-list__listing')]").each do |i|
     result << i.attributes['data-id'].value
   end
-​
+
   result.each do |r|
     flat = Flat.where(immo_id: r)
     unless flat.present?
