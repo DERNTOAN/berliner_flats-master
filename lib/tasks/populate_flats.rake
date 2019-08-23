@@ -11,7 +11,7 @@ task populate_flats: :environment do
                  .children.last&.text
   pages_amount = last_page.present? ? last_page.to_i : 1
   pages_amount.times do |p|
-    page = Nokogiri::HTML(open("https://www.immobilienscout24.de/Suche/S-2/P-#{p + 1}/Wohnung-Miete/Berlin/Berlin/Charlottenburg-Charlottenburg/3,00-/-/EURO--1500,00?enteredFrom=HNC_LAST_SEARCH"))
+    page = Nokogiri::HTML(open("https://www.immobilienscout24.de/Suche/S-T/P-#{p + 1}/Wohnung-Miete/Hamburg/Hamburg/Eimsbuettel_Eppendorf_Harvestehude_Ottensen_Rotherbaum_Uhlenhorst_Winterhude/3,00-/100,00-/EURO--1800,00?enteredFrom=result_list"))
     page.xpath("//ul[@id='resultListItems']//li[contains(@class, 'result-list__listing')]").each do |i|
       Flat.create(immo_id: i.attributes['data-id'].value)
     end
