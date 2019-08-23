@@ -49,5 +49,5 @@ test:
 production:
   <<: *default
   database: berliner_flats_production
-  username: berliner_flats
-  password: <%= ENV['BERLINER_FLATS_DATABASE_PASSWORD'] %>
+  # username: berliner_flats
+  # password: <%= ENV['BERLINER_FLATS_DATABASE_PASSWORD'] %>
