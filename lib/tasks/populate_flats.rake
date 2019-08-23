@@ -6,7 +6,7 @@ task populate_flats: :environment do
   start_time = Time.now
 
   # log.info "Task started at #{start_time}"
-  doc = Nokogiri::HTML(open('https://www.immobilienscout24.de/Suche/S-2/Wohnung-Miete/Berlin/Berlin/Charlottenburg-Charlottenburg/3,00-/-/EURO--1500,00?enteredFrom=HNC_LAST_SEARCH'))
+  doc = Nokogiri::HTML(open('https://www.immobilienscout24.de/Suche/S-T/Wohnung-Miete/Hamburg/Hamburg/Eimsbuettel_Eppendorf_Harvestehude_Ottensen_Rotherbaum_Uhlenhorst_Winterhude/3,00-/100,00-/EURO--1800,00?enteredFrom=result_list'))
   last_page = doc.xpath("//select[contains(@aria-label, 'Seitenauswahl')]")
                  .children.last&.text
   pages_amount = last_page.present? ? last_page.to_i : 1
