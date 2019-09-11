@@ -9,9 +9,9 @@ scheduler.every '2m' do
   require 'open-uri'
   require 'telegram/bot'
   sleep(rand(12))
-  # doc = Nokogiri::HTML(open('https://www.immobilienscout24.de/Suche/S-T/Wohnung-Miete/Hamburg/Hamburg/Eimsbuettel_Eppendorf_Harvestehude_Ottensen_Rotherbaum_Uhlenhorst_Winterhude/3,00-/100,00-/EURO--1800,00?enteredFrom=result_list'))
+  # doc = Nokogiri::HTML(open('https://www.immobilienscout24.de/Suche/S-T/Wohnung-Miete/Hamburg/Hamburg/Eimsbuettel_Eppendorf_Harvestehude_Hoheluft-Ost_Hoheluft-West_Ottensen_Rotherbaum_Sternschanze_Uhlenhorst_Winterhude/3,00-/100,00-/EURO--1800,00?enteredFrom=result_list'))
   # doc = Nokogiri::HTML(open("https://www.immobilienscout24.de/Suche/S-2/Wohnung-Miete/Polygonsuche/%7Bun_I%7Dg%7CoAuj@%7BKiSwg@_%7D@%7BmDSjD_N_tBne@ia@zDqs@tL%7D%5BvJwXvJal@~m@ybBlIucAlz@uf@dh@vI%7C%60A%7CZrRzi@zDrt@bHzkE__@hlAioAzaCup@hvC/3,00-/-/EURO--1200,00?enteredFrom=result_list#/"))
-  doc = Nokogiri::HTML(open("https://www.immobilienscout24.de/Suche/S-T/Wohnung-Miete/Hamburg/Hamburg/Eimsbuettel_Eppendorf_Harvestehude_Ottensen_Rotherbaum_Uhlenhorst_Winterhude/3,00-/100,00-/EURO--1800,00?enteredFrom=result_list"))
+  doc = Nokogiri::HTML(open("https://www.immobilienscout24.de/Suche/S-T/Wohnung-Miete/Hamburg/Hamburg/Eimsbuettel_Eppendorf_Harvestehude_Hoheluft-Ost_Hoheluft-West_Ottensen_Rotherbaum_Sternschanze_Uhlenhorst_Winterhude/3,00-/100,00-/EURO--1800,00?enteredFrom=result_list"))
   result = []
   doc.xpath("//ul[@id='resultListItems']//li[contains(@class, 'result-list__listing')]").each do |i|
     result << i.attributes['data-id'].value
